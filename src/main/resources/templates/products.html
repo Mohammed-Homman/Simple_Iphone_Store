@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Product List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Adding some custom styles */
+        .table-header {
+            background-color: #4B5563; /* Changing to a darker gray */
+        }
+        .table-row:hover {
+            background-color: #F3F4F6; /* Lighter gray for hover */
+        }
+    </style>
+</head>
+<body class="bg-white">
+<div class="container mx-auto px-6 py-4">
+    <h1 class="text-gray-800 font-bold text-xl mb-4">Iphone Store Inventory</h1>
+    <div class="mb-4">
+        <a href="/addProduct" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+            Add New iPhone
+        </a>
+    </div>
+    <div class="bg-white shadow overflow-hidden rounded-lg">
+        <table class="min-w-full divide-y divide-gray-300">
+            <thead class="bg-gray-800">
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                    ID
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                    Model Name
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                    Price (Dh)
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                    Stock Quantity
+                </th>
+            </tr>
+            </thead>
+            <tbody class="bg-gray-100 divide-y divide-gray-200">
+            <tr th:each="product : ${products}" class="hover:bg-gray-50">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900" th:text="${product.id}">
+                    ID
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${product.modelName}">
+                    Model Name
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${product.price}">
+                    Price
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${product.quantite}">
+                    Quantity
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

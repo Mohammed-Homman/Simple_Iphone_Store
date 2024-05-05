@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Add Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+<div class="container content-center px-4">
+    <h1 class="text-blue-700 font-black my-4">Iphone Store</h1>
+    <form th:action="@{/saveProduct}" th:method="post" th:object="${product}">
+        <div class="mb-4">
+            <label for="modelName" class="block text-gray-700 text-sm font-bold mb-2">Model Name:</label>
+            <input type="text" id="modelName" name="modelName" required
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Price:</label>
+            <input type="number" step="0.01" id="price" name="price" required
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label for="quantite" class="block text-gray-700 text-sm font-bold mb-2">Quantite en Stock:</label>
+            <input type="number" id="quantite" name="quantite" th:value="${product.quantite}" required readonly
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none">
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Submit
+        </button>
+    </form>
+</div>
+</body>
+</html>
